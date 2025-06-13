@@ -1,1 +1,270 @@
-<h2>Hello your with me => We</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soheil | .Net Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7928ca;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f8f8f8;
+            scroll-behavior: smooth;
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .glass {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero-image {
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid #0a0a0a;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+      <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Technologies I've worked with and mastered throughout my career</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-microsoft text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">.NET Core</h3>
+                    <p class="text-gray-400 text-sm text-center">5+ years experience</p>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-database text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">SQL</h3>
+                    <p class="text-gray-400 text-sm text-center">Advanced querying</p>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-git-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Git</h3>
+                    <p class="text-gray-400 text-sm text-center">Version control</p>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-aws text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">AWS</h3>
+                    <p class="text-gray-400 text-sm text-center">Cloud services</p>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-server text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">EF Core</h3>
+                    <p class="text-gray-400 text-sm text-center">ORM framework</p>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-docker text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Docker</h3>
+                    <p class="text-gray-400 text-sm text-center">Containerization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-primary">Soheil</a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 Soheil. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
