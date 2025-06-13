@@ -1,10 +1,671 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to Soheil's Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soheil | Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7928ca;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f8f8f8;
+            scroll-behavior: smooth;
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .glass {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero-image {
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid #0a0a0a;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
 </head>
-<body>
-  <h1>Hello, I'm Soheil 👋</h1>
-  <p>This is my first GitHub Pages website.</p>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary">Soheil</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-primary px-3 py-2">Home</a>
+                        <a href="#skills" class="nav-link text-white hover:text-primary px-3 py-2">Skills</a>
+                        <a href="#projects" class="nav-link text-white hover:text-primary px-3 py-2">Projects</a>
+                        <a href="#resume" class="nav-link text-white hover:text-primary px-3 py-2">Resume</a>
+                        <a href="#contact" class="nav-link text-white hover:text-primary px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden glass">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-primary">Home</a>
+                <a href="#skills" class="block px-3 py-2 text-white hover:text-primary">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-white hover:text-primary">Projects</a>
+                <a href="#resume" class="block px-3 py-2 text-white hover:text-primary">Resume</a>
+                <a href="#contact" class="block px-3 py-2 text-white hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary">Soheil</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Backend Software Developer</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        I build robust, scalable backend systems with .NET Core and modern cloud technologies. 
+                        Passionate about clean code, architecture patterns, and solving complex problems.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-primary hover:bg-opacity-90 text-black font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Contact Me
+                        </a>
+                        <a href="#projects" class="border border-primary hover:bg-primary hover:bg-opacity-10 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden hero-image animate-float">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                                 alt="Soheil" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-gray-900 rounded-full p-3 border-2 border-primary">
+                            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fas fa-code text-2xl text-black"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Technologies I've worked with and mastered throughout my career</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-microsoft text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">.NET Core</h3>
+                    <p class="text-gray-400 text-sm text-center">5+ years experience</p>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-database text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">SQL</h3>
+                    <p class="text-gray-400 text-sm text-center">Advanced querying</p>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-git-alt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Git</h3>
+                    <p class="text-gray-400 text-sm text-center">Version control</p>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-aws text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">AWS</h3>
+                    <p class="text-gray-400 text-sm text-center">Cloud services</p>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-server text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">EF Core</h3>
+                    <p class="text-gray-400 text-sm text-center">ORM framework</p>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="skill-card glass p-6 rounded-xl transition duration-300">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fab fa-docker text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Docker</h3>
+                    <p class="text-gray-400 text-sm text-center">Containerization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Featured <span class="text-primary">Projects</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Some of my recent work that I'm particularly proud of</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 1" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <h3 class="text-xl font-bold">E-Commerce API</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">.NET 6</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">EF Core</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 mb-4">A high-performance e-commerce backend with payment integration, inventory management, and analytics.</p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-white">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                             alt="Project 2" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <h3 class="text-xl font-bold">Analytics Dashboard</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">C#</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">Azure</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">Power BI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 mb-4">Real-time business analytics platform processing millions of data points with custom visualizations.</p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-white">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 3" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <h3 class="text-xl font-bold">Microservices Architecture</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">Kubernetes</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">RabbitMQ</span>
+                                <span class="text-xs bg-gray-800 text-primary px-2 py-1 rounded">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-400 mb-4">Scalable microservices system with event-driven communication and container orchestration.</p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-white">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="text-primary">Resume</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">My professional journey and achievements</p>
+            </div>
+            
+            <div class="flex justify-center mb-8">
+                <a href="#" class="bg-primary hover:bg-opacity-90 text-black font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-briefcase text-primary mr-3"></i> Experience
+                    </h3>
+                    
+                    <div class="relative pl-10 timeline">
+                        <!-- Experience 1 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="glass p-6 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-xl font-semibold">Senior Backend Developer</h4>
+                                    <span class="text-sm bg-primary text-black px-2 py-1 rounded">2021 - Present</span>
+                                </div>
+                                <h5 class="text-primary mb-2">Tech Solutions Inc.</h5>
+                                <p class="text-gray-400">
+                                    Led a team of 5 developers to build scalable microservices architecture. 
+                                    Improved API response times by 40% through optimization.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="glass p-6 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-xl font-semibold">Backend Developer</h4>
+                                    <span class="text-sm bg-primary text-black px-2 py-1 rounded">2018 - 2021</span>
+                                </div>
+                                <h5 class="text-primary mb-2">Digital Innovations LLC</h5>
+                                <p class="text-gray-400">
+                                    Developed RESTful APIs for enterprise applications. 
+                                    Implemented CI/CD pipelines reducing deployment time by 60%.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-graduation-cap text-primary mr-3"></i> Education
+                    </h3>
+                    
+                    <div class="relative pl-10 timeline">
+                        <!-- Education 1 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="glass p-6 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-xl font-semibold">MSc in Computer Science</h4>
+                                    <span class="text-sm bg-primary text-black px-2 py-1 rounded">2016 - 2018</span>
+                                </div>
+                                <h5 class="text-primary mb-2">University of Technology</h5>
+                                <p class="text-gray-400">
+                                    Specialized in Distributed Systems and Cloud Computing. 
+                                    Thesis on "Optimizing Microservices Communication Patterns".
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Education 2 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="glass p-6 rounded-xl">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-xl font-semibold">BSc in Software Engineering</h4>
+                                    <span class="text-sm bg-primary text-black px-2 py-1 rounded">2012 - 2016</span>
+                                </div>
+                                <h5 class="text-primary mb-2">State University</h5>
+                                <p class="text-gray-400">
+                                    Focused on backend development and database systems. 
+                                    Graduated with honors (GPA: 3.8/4.0).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-certificate text-primary mr-3"></i> Certifications
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Cert 1 -->
+                    <div class="glass p-6 rounded-xl">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                <i class="fab fa-microsoft text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">Microsoft Certified</h4>
+                                <p class="text-gray-400 text-sm">Azure Developer Associate</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm">2022 - Valid through 2024</p>
+                    </div>
+                    
+                    <!-- Cert 2 -->
+                    <div class="glass p-6 rounded-xl">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                <i class="fab fa-aws text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">AWS Certified</h4>
+                                <p class="text-gray-400 text-sm">Solutions Architect - Associate</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm">2021 - Valid through 2023</p>
+                    </div>
+                    
+                    <!-- Cert 3 -->
+                    <div class="glass p-6 rounded-xl">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                <i class="fas fa-database text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold">Oracle Certified</h4>
+                                <p class="text-gray-400 text-sm">Database SQL Expert</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm">2020 - Lifetime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Get In <span class="text-primary">Touch</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Have a project in mind or want to discuss potential opportunities?</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="glass p-8 rounded-xl">
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="John Doe">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="john@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-black font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <div class="glass p-8 rounded-xl mb-8">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="mailto:soheil@example.com" class="text-primary hover:text-white">soheil@example.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-phone-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <a href="tel:+1234567890" class="text-primary hover:text-white">+1 (234) 567-890</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-gray-800 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Location</h4>
+                                    <p class="text-gray-400">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass p-8 rounded-xl">
+                        <h3 class="text-xl font-bold mb-6">Follow Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-black transition duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-black transition duration-300">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-black transition duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-black transition duration-300">
+                                <i class="fab fa-stack-overflow text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-primary">Soheil</a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 Soheil. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
